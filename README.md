@@ -73,11 +73,11 @@
 
 ```mermaid
 graph LR
-    User[User (React Client)] -->|API Request| Spring[Spring Boot Server]
-    Spring -->|JPA/QueryDSL| DB[(Oracle DB)]
-    Spring -->|REST API (JSON)| Flask[Flask AI Server]
-    Flask -->|Vector Search| Vector[(TF-IDF Vectorizer)]
-    Flask -->|Prompt Injection| LLM[Ollama (Gemma Model)]
+    User["User (React Client)"] -->|API Request| Spring["Spring Boot Server"]
+    Spring -->|JPA/QueryDSL| DB[("Oracle DB")]
+    Spring -->|REST API (JSON)| Flask["Flask AI Server"]
+    Flask -->|Vector Search| Vector[("TF-IDF Vectorizer")]
+    Flask -->|Prompt Injection| LLM["Ollama (Gemma Model)"]
     LLM -->|Generated Text| Flask
     Flask -->|Response| Spring
     Spring -->|Response| User
