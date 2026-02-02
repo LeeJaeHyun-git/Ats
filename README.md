@@ -131,4 +131,21 @@ ollama pull gemma3:4b
 python app.py
 # 접속: http://localhost:5000
 
+Ats/
+├── src/main/java/min/boot/ats   # [Backend] Spring Boot Source
+│   ├── config/                  # Security, QueryDSL, Cors Config
+│   ├── control/                 # API Controllers
+│   ├── domain/                  # JPA Entities
+│   ├── repo/                    # Repositories (JPA & QueryDSL)
+│   └── service/                 # Business Logic
+├── frontend/                    # [Frontend] React Source
+│   ├── src/
+│   │   ├── api/                 # Axios Instance
+│   │   ├── components/          # Reusable Components (Chatbot, etc.)
+│   │   ├── context/             # AuthContext (Global State)
+│   │   └── pages/               # Page Components
+└── ai-server/                   # [AI] Flask Source
+    ├── app.py                   # Flask App Entry
+    └── data/                    # RAG Knowledge Base (CSV)
+
 
