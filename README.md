@@ -83,6 +83,18 @@ graph LR
 | **Security** | Spring Security | Auth & Password Encoding |
 | **Tools** | Gradle, Git, Postman | Build & Collaboration |
 
+## 🧨 트러블 슈팅 (Troubleshooting)
+
+### 이슈 1: LLM 응답 속도 지연 및 타임아웃
+* **문제:** Flask AI 서버의 연산 처리로 인해 Spring Boot에서 `ReadTimeout` 예외 발생.
+* **해결:**
+    * `RestTemplate`의 ReadTimeout 설정을 5초에서 30초로 늘려 AI 추론 대기 시간 확보.
+    * 사용자 경험(UX) 개선을 위해 프론트엔드에서 '답변 생성 중' 로딩 스피너(Loading Spinner) 구현.
+
+### 이슈 2: 동적 쿼리 검색 조건의 복잡성
+* **문제:** 검색 필터가 늘어날수록 `if-else` 구문이 기하급수적으로 증가하여 유지보수 어려움.
+* **해결:** QueryDSL의 `BooleanExpression`을 활용하여 조건을 메서드 단위로 분리하고, `null` 반환 시 자동으로 `WHERE` 절에서 무시되도록 하여 **가독성**과 **확장성**을 동시에 확보.
+
 ---
 
 ## 💾 데이터베이스 모델링 (ERD Summary)
