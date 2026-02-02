@@ -115,3 +115,37 @@ cd Ats
 # application.yml 설정 (DB 계정 정보 수정)
 # 빌드 및 실행
 ./gradlew bootRun
+
+cd frontend
+npm install
+
+# Proxy 설정 확인 (src/setupProxy.js)
+npm start
+# 브라우저 접속: http://localhost:3000
+
+cd ai-server
+pip install -r requirements.txt
+
+# Ollama 모델 준비
+ollama pull gemma3:4b
+
+# 서버 실행
+python app.py
+# 접속: http://localhost:5000
+
+Ats/
+├── src/main/java/min/boot/ats   # [Backend] Spring Boot Source
+│   ├── config/                  # Security, QueryDSL, Cors Config
+│   ├── control/                 # API Controllers
+│   ├── domain/                  # JPA Entities
+│   ├── repo/                    # Repositories (JPA & QueryDSL)
+│   └── service/                 # Business Logic
+├── frontend/                    # [Frontend] React Source
+│   ├── src/
+│   │   ├── api/                 # Axios Instance
+│   │   ├── components/          # Reusable Components (Chatbot, etc.)
+│   │   ├── context/             # AuthContext (Global State)
+│   │   └── pages/               # Page Components
+└── ai-server/                   # [AI] Flask Source
+    ├── app.py                   # Flask App Entry
+    └── data/                    # RAG Knowledge Base (CSV)
