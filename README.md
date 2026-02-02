@@ -10,7 +10,7 @@
 
 ## 📖 프로젝트 개요 (Overview)
 **Ats**는 한국 기업의 채용 프로세스에 특화된 **올인원 채용 관리 시스템**입니다.  
-기존 채용 플랫폼의 경직된 구조(템플릿 한계)를 탈피하여 **전형 단계(Step)를 기업 상황에 맞춰 자유롭게 커스터마이징** 할 수 있으며, **RAG(검색 증강 생성) 기반의 AI 비서**를 통해 채용 공고 작성 업무 시간을 획기적으로 단축시킵니다.
+기존 채용 플랫폼의 경직된 구조를 탈피하여 **전형 단계(Step)를 기업 상황에 맞춰 자유롭게 커스터마이징** 할 수 있으며, **RAG(검색 증강 생성) 기반의 AI 비서**를 통해 채용 공고 작성 업무 시간을 획기적으로 단축시킵니다.
 
 ### 🎯 핵심 목표
 * **Process Innovation:** 정형화된 채용 단계를 넘어선 유연한 프로세스 설계 (Custom Workflow).
@@ -34,11 +34,11 @@ https://github.com/user-attachments/assets/67e3294b-aa00-4dab-badf-a5c9823524ba
 
 ```mermaid
 graph LR
-    User["User (React Client)"] -->|API Request| Spring["Spring Boot Server"]
-    Spring -->|JPA & QueryDSL| DB[("Oracle DB")]
-    Spring -->|REST API (JSON)| Flask["Flask AI Server"]
+    User["User React Client"] -->|API Request| Spring["Spring Boot Server"]
+    Spring -->|JPA and QueryDSL| DB[("Oracle DB")]
+    Spring -->|REST API JSON| Flask["Flask AI Server"]
     Flask -->|Vector Search| Vector[("TF-IDF Vectorizer")]
-    Flask -->|Prompt Injection| LLM["Ollama (Gemma Model)"]
+    Flask -->|Prompt Injection| LLM["Ollama Gemma Model"]
     LLM -->|Generated Text| Flask
     Flask -->|Response| Spring
     Spring -->|Response| User
