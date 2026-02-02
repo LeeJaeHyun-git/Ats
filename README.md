@@ -9,7 +9,7 @@
 ![Oracle](https://img.shields.io/badge/Oracle-21c-F80000?logo=oracle&logoColor=white)
 
 ## 📖 프로젝트 개요 (Overview)
-**Ats**는 한국 기업의 채용 프로세스에 특화된 **올인원 채용 관리 시스템**입니다.  
+**Ats**는 한국 기업의 채용 프로세스에 특화된 **LLM 기반 채용 관리 시스템**입니다.  
 기존 채용 플랫폼의 문제점인 **'경직된 채용 프로세스'**와 **'반복적인 공고 작성 업무'**를 해결하기 위해 개발되었습니다. 
 기업은 전형 단계(Step)를 상황에 맞춰 자유롭게 커스터마이징 할 수 있으며, **RAG(검색 증강 생성) 기반의 AI 비서**를 통해 직무에 최적화된 공고를 자동 생성할 수 있습니다.
 
@@ -62,7 +62,7 @@ graph LR
 * **기술:** `Jobs` Entity와 `JobSteps` Entity 간의 **1:N 연관관계** 및 JPA의 `orphanRemoval` 옵션을 활용하여 데이터 생명주기를 완벽하게 동기화했습니다.
 
 ### 3. 🔍 QueryDSL 기반 동적 검색 (Dynamic Search)
-* **기능:** 지역, 직무 카테고리, 고용 형태, 키워드 등 다양한 조건의 복합 필터링 검색을 지원합니다.
+* **기능:** 제목, 직무 카테고리, 고용 형태, 키워드 등 다양한 조건의 복합 필터링 검색을 지원합니다.
 * **기술:** QueryDSL의 `BooleanBuilder`와 `BooleanExpression`을 사용하여, 조건 유무에 따라 쿼리가 동적으로 변하는 **Null-Safe**하고 성능 최적화된 검색 로직을 구현했습니다.
 
 ### 4. 🔐 보안 및 이종 서버 통신 (Security & Networking)
@@ -76,7 +76,7 @@ graph LR
 | 구분 | 기술 스택 | 비고 |
 | :--- | :--- | :--- |
 | **Backend** | **Spring Boot 3.5.9**, Java 21 | Core API Server |
-| **Database** | **Oracle Database 21c**, JPA, **QueryDSL 5.0** | Data Persistence |
+| **Database** | **Oracle Database 21ai**, JPA, **QueryDSL 5.0** | Data Persistence |
 | **Frontend** | **React 19**, Axios, Bootstrap 5 | SPA Architecture |
 | **AI Server** | **Python Flask**, Scikit-learn | RAG & Vector Search |
 | **LLM** | **Ollama (gemma3:4b)** | On-premise LLM |
@@ -87,7 +87,7 @@ graph LR
 
 ## 💾 데이터베이스 모델링 (ERD Summary)
 
-* **USERS:** 사용자 계정 정보 (관리자, 채용담당자, 일반회원 - Role 기반 권한 관리)
+* **USERS:** 사용자 계정 정보 (관리자, 채용담당자, 현업 매니저, 면접관 - Role 기반 권한 관리)
 * **COMPANIES:** 채용을 진행하는 기업 정보 (USERS와 연동)
 * **JOBS:** 채용 공고 메인 엔티티
 * **JOB_STEPS:** 공고별 커스텀 전형 단계 (순서 및 메타데이터 포함)
@@ -102,8 +102,8 @@ graph LR
 ### Prerequisites
 * **Java 21** & **JDK**
 * **Node.js** (v18+) & **npm**
-* **Python 3.12+**
-* **Oracle Database** (localhost:1521)
+* **Python 3.10+**
+* **Oracle Database 23ai free** (localhost:1521)
 * **Ollama** (Model: `gemma3:4b` pull 완료 필수)
 
 ```bash
@@ -141,14 +141,15 @@ Ats/
 │   ├── config/                  # Security, QueryDSL, Cors Config
 │   ├── control/                 # API Controllers
 │   ├── domain/                  # JPA Entities
-│   ├── repo/                    # Repositories (JPA & QueryDSL)
+│   ├── repo/
+│   ├── dto/                     # Service dto
 │   └── service/                 # Business Logic
-├── frontend/                    # [Frontend] React Source
-│   ├── src/
-│   │   ├── api/                 # Axios Instance
-│   │   ├── components/          # Reusable Components (Chatbot, etc.)
-│   │   ├── context/             # AuthContext (Global State)
-│   │   └── pages/               # Page Components
-└── ai-server/                   # [AI] Flask Source
-    ├── app.py                   # Flask App Entry
-    └── data/                    # RAG Knowledge Base (CSV)
+└── frontend/                    # [Frontend] React Source 
+    └── src/
+        ├── api/                 # Axios Instance
+        ├── components/          # Reusable Components (Chatbot, etc.)
+        ├── context/             # AuthContext (Global State)
+        └── pages/               # Page Components
+
+
+
