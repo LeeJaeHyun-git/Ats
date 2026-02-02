@@ -43,3 +43,5 @@ graph LR
     LLM -->|Generated Text| Flask
     Flask -->|Response| Spring
     Spring -->|Response| User
+```
+
