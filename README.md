@@ -118,7 +118,7 @@ graph LR
 
 ## 🚀 시작 가이드 (Getting Started)
 
-이 프로젝트를 로컬 환경에서 실행하기 위한 가이드입니다.
+이 프로젝트는 **Backend, Frontend, AI Server**가 각각 분리된 환경에서 실행됩니다. 아래 순서대로 실행해 주세요.
 
 ### Prerequisites
 * **Java 21** & **JDK**
@@ -127,14 +127,13 @@ graph LR
 * **Oracle Database 23ai free** (localhost:1521)
 * **Ollama** (Model: `gemma3:4b` pull 완료 필수)
 
+### 1. Backend (Spring Boot)
 ```bash
-Backend (Spring Boot)
 # Repository Clone
-git clone https://github.com/LeeJaeHyun-git/Ats.git
+git clone [https://github.com/LeeJaeHyun-git/Ats.git](https://github.com/LeeJaeHyun-git/Ats.git)
 cd Ats
 
-# application.yml 설정 (DB 계정 정보 수정)
-# 빌드 및 실행
+# application.yml DB 정보 수정 후 빌드
 ./gradlew bootRun
 
 Frontend (React)
