@@ -13,6 +13,15 @@
 기존 채용 플랫폼의 문제점인 **'경직된 채용 프로세스'**와 **'반복적인 공고 작성 업무'**를 해결하기 위해 개발되었습니다. 
 기업은 전형 단계(Step)를 상황에 맞춰 자유롭게 커스터마이징 할 수 있으며, **RAG(검색 증강 생성) 기반의 AI 비서**를 통해 직무에 최적화된 공고를 자동 생성할 수 있습니다.
 
+## 👨‍💻 Developer Info
+* **Name:** 이재현 (Lee Jae-Hyun)
+* **Role:** Full Stack Developer (Backend 70%, Frontend 30%)
+* **Contact:** [GitHub Profile Link] | [Email Address]
+* **Contribution:**
+    * Spring Boot & Flask 하이브리드 아키텍처 설계 및 구현
+    * RAG(Retrieval-Augmented Generation) 파이프라인 구축 및 프롬프트 엔지니어링
+    * JPA 및 QueryDSL을 활용한 복잡한 동적 쿼리 및 데이터 모델링
+
 ### 🎯 핵심 목표 (Goals)
 * **Process Innovation:** 정형화된 채용 단계를 넘어선 유연한 프로세스 설계 (Custom Workflow).
 * **Work Efficiency:** RAG AI 기술을 활용한 공고 작성 및 직무 기술서 자동화.
@@ -162,14 +171,3 @@ Ats/
         ├── components/          # Reusable Components (Chatbot, etc.)
         ├── context/             # AuthContext (Global State)
         └── pages/               # Page Components
----
-## 👨‍💻 Developer Info
-* **Name:** 이재현 (Lee Jae-Hyun)
-* **Role:** Full Stack Developer (Backend 70%, Frontend 30%)
-* **Contact:** [GitHub Profile Link] | [Email Address]
-* **Contribution:**
-    * Spring Boot & Flask 하이브리드 아키텍처 설계 및 구현
-    * RAG(Retrieval-Augmented Generation) 파이프라인 구축 및 프롬프트 엔지니어링
-    * JPA 및 QueryDSL을 활용한 복잡한 동적 쿼리 및 데이터 모델링
-
-
