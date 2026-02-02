@@ -127,8 +127,8 @@ graph LR
 * **Oracle Database 23ai free** (localhost:1521)
 * **Ollama** (Model: `gemma3:4b` pull 완료 필수)
 
-### 1. Backend (Spring Boot)
 ```bash
+Backend (Spring Boot)
 # Repository Clone
 git clone [https://github.com/LeeJaeHyun-git/Ats.git](https://github.com/LeeJaeHyun-git/Ats.git)
 cd Ats
