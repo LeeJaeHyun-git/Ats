@@ -117,6 +117,7 @@ cd Ats
 ./gradlew bootRun
 
 Frontend (React)
+```bash
 cd frontend
 npm install
 
@@ -125,6 +126,7 @@ npm start
 # 브라우저 접속: http://localhost:3000
 
 AI Server (Flask)
+```bash
 cd ai-server
 pip install -r requirements.txt
 
