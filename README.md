@@ -81,3 +81,11 @@ graph LR
     LLM -->|Generated Text| Flask
     Flask -->|Response| Spring
     Spring -->|Response| User
+
+## 🎥 프로젝트 시연 (Demo)
+
+### [핵심 기능] AI 공고 자동 생성 및 적용
+> 아래 영상을 클릭하면 고화질로 재생됩니다.
+
+<video src="https://github.com/user-attachments/assets/67e3294b-aa00-4dab-badf-a5c9823524ba" controls="controls" style="max-width: 100%;">
+</video>
