@@ -144,7 +144,7 @@ Ats/
 │   ├── repo/
 │   ├── dto/                     # Service dto
 │   └── service/                 # Business Logic
-└── frontend/                    # [Frontend] React Source 
+└── front/                    # [Frontend] React Source 
     └── src/
         ├── api/                 # Axios Instance
         ├── components/          # Reusable Components (Chatbot, etc.)
