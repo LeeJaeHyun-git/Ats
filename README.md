@@ -163,5 +163,13 @@ Ats/
         ├── context/             # AuthContext (Global State)
         └── pages/               # Page Components
 
+## 👨‍💻 Developer Info
+* **Name:** 이재현 (Lee Jae-Hyun)
+* **Role:** Full Stack Developer (Backend 70%, Frontend 30%)
+* **Contact:** [GitHub Profile Link] | [Email Address]
+* **Contribution:**
+    * Spring Boot & Flask 하이브리드 아키텍처 설계 및 구현
+    * RAG(Retrieval-Augmented Generation) 파이프라인 구축 및 프롬프트 엔지니어링
+    * JPA 및 QueryDSL을 활용한 복잡한 동적 쿼리 및 데이터 모델링
 
 
