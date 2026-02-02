@@ -162,7 +162,7 @@ Ats/
         ├── components/          # Reusable Components (Chatbot, etc.)
         ├── context/             # AuthContext (Global State)
         └── pages/               # Page Components
-
+---
 ## 👨‍💻 Developer Info
 * **Name:** 이재현 (Lee Jae-Hyun)
 * **Role:** Full Stack Developer (Backend 70%, Frontend 30%)
