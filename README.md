@@ -1,4 +1,4 @@
-# 🚀 Ats (Korean Intelligent ATS Solution)
+# 🚀 Ats (Intelligent ATS Solution)
 > **Spring Boot & Flask 하이브리드 아키텍처 기반의 지능형 채용 관리 솔루션**
 > *Spring Boot & Flask Hybrid Architecture based Intelligent ATS*
 
