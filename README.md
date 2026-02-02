@@ -106,7 +106,7 @@ graph LR
 * **Oracle Database** (localhost:1521)
 * **Ollama** (Model: `gemma3:4b` pull 완료 필수)
 
-### 1. Backend (Spring Boot)
+Backend (Spring Boot)
 ```bash
 # Repository Clone
 git clone https://github.com/LeeJaeHyun-git/Ats.git
@@ -116,6 +116,7 @@ cd Ats
 # 빌드 및 실행
 ./gradlew bootRun
 
+Frontend (React)
 cd frontend
 npm install
 
@@ -123,6 +124,7 @@ npm install
 npm start
 # 브라우저 접속: http://localhost:3000
 
+AI Server (Flask)
 cd ai-server
 pip install -r requirements.txt
 
@@ -133,6 +135,7 @@ ollama pull gemma3:4b
 python app.py
 # 접속: http://localhost:5000
 
+프로젝트 구조 (Directory Structure)
 Ats/
 ├── src/main/java/min/boot/ats   # [Backend] Spring Boot Source
 │   ├── config/                  # Security, QueryDSL, Cors Config
