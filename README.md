@@ -92,9 +92,7 @@ JobReorderRequestDto를 통해 변경된 ID 리스트를 서버로 전송하고,
 ---
 
 AtsProject-Ats
-
 ├── ☕ backend (Spring Boot)
-
 │   ├── src/main/java/min/boot/ats
 │   │   ├── component   # JobScheduler
 │   │   ├── config      # Security, QueryDSL, Password 설정
