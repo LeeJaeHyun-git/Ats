@@ -44,8 +44,8 @@ graph TD
 ---
 
 ## 💾 데이터베이스 설계 (ERD)
-<img width="647" height="613" alt="Image" src="https://github.com/user-attachments/assets/4f058bc6-b23b-4757-b372-48057b7c7922" />
-<img width="469" height="706" alt="Image" src="https://github.com/user-attachments/assets/387092f3-5319-4bf9-b2de-fe6d40dcb5f7" />
+<img width="1470" height="2516" alt="Image" src="https://github.com/user-attachments/assets/a8ce3b9d-ce10-4d3a-b517-44307c8cbb17" />
+<img width="647" height="613" alt="Image" src="https://github.com/user-attachments/assets/a9821502-b5c9-492a-beff-af0567cd50ee" />
 
 ---
 
