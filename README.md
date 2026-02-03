@@ -12,7 +12,7 @@
 ### 💡 핵심 특화점
 1.  **Hybrid Architecture**: 안정적인 Spring Boot(백엔드)와 유연한 Flask(AI 서빙)의 이종 서버 결합
 2.  **AI RAG Chatbot**: 사내 데이터를 기반으로 직무 기술서(JD) 초안을 자동 생성 및 추천 (Gemma/Llama 모델 활용)
-3.  **Dynamic Workflow**: 드래그 앤 드롭(DnD)으로 전형 단계와 자기소개서 문항을 자유롭게 커스터마이징
+3.  **Dynamic Workflow**: 직관적인 UI로 전형 단계와 지원요구사항 문항을 자유롭게 커스터마이징
 
 ---
 
@@ -20,10 +20,10 @@
 
 | Category | Technology |
 | --- | --- |
-| **Frontend** | React 19, Bootstrap 5, Axios, @hello-pangea/dnd |
+| **Frontend** | React 19, Bootstrap 5, Axios |
 | **Backend (Main)** | Java 21, Spring Boot 3.5, Spring Security, JPA/Hibernate, QueryDSL |
-| **Backend (AI)** | Python 3.11, Flask, Scikit-learn (TF-IDF), Ollama (LLM) |
-| **Database** | Oracle 19c (RDBMS) |
+| **Backend (AI)** | Python 3.10, Flask, Scikit-learn (TF-IDF), Ollama - gemma3:4b(LLM) |
+| **Database** | Oracle Database 23ai free (RDBMS) |
 | **Infrastructure** | Http-Proxy-Middleware (CORS 해결), Gradle, RESTful API |
 
 ---
@@ -39,3 +39,4 @@ graph TD
     Spring -->|JPA/QueryDSL| DB[(Oracle DB)]
     Flask -->|RAG / LLM| AI_Model[[Ollama / Local LLM]]
     Flask -->|Load| CSV[(ChatbotData.csv)]
+```
