@@ -91,14 +91,17 @@ JobReorderRequestDto를 통해 변경된 ID 리스트를 서버로 전송하고,
 
 ---
 
-AtsProject-Ats
+## 📂 프로젝트 구조 (Project Structure)
 
+### 1. AtsProject-Ats (Main Service)
+```bash
+AtsProject-Ats
 ├── ☕ backend (Spring Boot)
 │   ├── src/main/java/min/boot/ats
 │   │   ├── component   # JobScheduler
 │   │   ├── config      # Security, QueryDSL, Password 설정
-│   │   ├── control     # REST API Controller (Auth, Job, Chat, etc.)
-│   │   ├── domain      # JPA Entity (User, Job, Company, etc.)
+│   │   ├── control     # REST API Controller
+│   │   ├── domain      # JPA Entity
 │   │   ├── dto         # Request/Response DTO
 │   │   ├── repo        # Repository & Custom QueryDSL
 │   │   └── service     # 비즈니스 로직
@@ -109,16 +112,19 @@ AtsProject-Ats
     │   ├── api         # Axios 인스턴스 설정
     │   ├── components  # Chatbot, DnD UI 컴포넌트
     │   ├── context     # AuthContext (로그인 상태 관리)
-    │   ├── pages       # 주요 페이지 (Main, JobPost, Login, etc.)
+    │   ├── pages       # 주요 페이지
     │   └── setupProxy.js # Proxy 설정
     └── package.json
+```
 
+### 2. AtsProject-Chatbot (AI Microservice)
+```bash
 AtsProject-Chatbot
-
 ├── 🐍 ai-server (Flask)
-├── myApp          
-│    └──app.py      # Flask 서버 진입점 & RAG 로직
-└── data            # 학습용 데이터셋 (ChatbotData.csv)
+│   ├── myApp
+│   │   └── app.py      # Flask 서버 진입점 & RAG 로직
+│   └── data            # 학습용 데이터셋 (ChatbotData.csv)
+```
 
 ---
 
