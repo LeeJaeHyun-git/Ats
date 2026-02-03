@@ -68,6 +68,7 @@ graph TD
 🔥 트러블 슈팅 (Troubleshooting)
 
 이슈 1: 이종 서버(Spring-Flask) 간 CORS 및 통신 문제
+
 문제: React(3000), Spring(8080), Flask(5000) 포트 불일치로 인한 CORS 에러 발생
 
 해결:
@@ -79,6 +80,7 @@ Spring Boot의 ChatController가 Flask로의 요청을 중계(Relay)하는 API G
 클라이언트는 Spring하고만 통신하도록 단일화하여 보안 및 세션 관리 문제 해결
 
 이슈 2: 동적 입력 폼 데이터의 정합성 유지
+
 문제: 사용자가 임의로 추가/삭제하는 전형 단계(Step)와 질문(Question)의 순서(Order)가 DB 저장 시 꼬이는 현상
 
 해결:
