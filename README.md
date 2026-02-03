@@ -81,11 +81,11 @@ Spring Boot의 ChatController가 Flask로의 요청을 중계(Relay)하는 API G
 
 이슈 2: 동적 입력 폼 데이터의 정합성 유지
 
-문제: 사용자가 임의로 추가/삭제하는 전형 단계(Step)와 질문(Question)의 순서(Order)가 DB 저장 시 꼬이는 현상
+문제: 사용자가 임의로 추가/삭제하는 전형 단계(JobStep)와 질문(JobQuestion)의 순서(Order)가 DB 저장 시 꼬이는 현상
 
 해결:
 
-프론트엔드 DnD 종료 시점에 배열 인덱스를 기준으로 order 필드 재계산
+프론트엔드 종료 시점에 배열 인덱스를 기준으로 order 필드 재계산
 
 JobReorderRequestDto를 통해 변경된 ID 리스트를 서버로 전송하고, @Modifying 쿼리로 일괄 업데이트
 
@@ -110,7 +110,7 @@ AtsProject-Ats
 └── ⚛️ frontend (React)
     ├── src
     │   ├── api         # Axios 인스턴스 설정
-    │   ├── components  # Chatbot, DnD UI 컴포넌트
+    │   ├── components  # Chatbot
     │   ├── context     # AuthContext (로그인 상태 관리)
     │   ├── pages       # 주요 페이지
     │   └── setupProxy.js # Proxy 설정
@@ -121,9 +121,9 @@ AtsProject-Ats
 ```bash
 AtsProject-Chatbot
 ├── 🐍 ai-server (Flask)
-│   ├── myApp
-│   │   └── app.py      # Flask 서버 진입점 & RAG 로직
-│   └── data            # 학습용 데이터셋 (ChatbotData.csv)
+│   └── myApp
+│       └── app.py      # Flask 서버 진입점 & RAG 로직
+└── data            # 학습용 데이터셋 (ChatbotData.csv)
 ```
 
 ---
