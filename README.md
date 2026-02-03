@@ -1,172 +1,41 @@
-# 🚀 Ats (Intelligent ATS Solution)
-> **Spring Boot & Flask 하이브리드 아키텍처 기반의 지능형 채용 관리 솔루션**
-> *Spring Boot & Flask Hybrid Architecture based Intelligent ATS*
+# 🚀 지능형 채용 관리 솔루션 (Intelligent ATS)
 
-![Java](https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white) 
-![SpringBoot](https://img.shields.io/badge/SpringBoot-3.5.9-green?logo=springboot&logoColor=white) 
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black) 
-![Python](https://img.shields.io/badge/Python-3.12-yellow?logo=python&logoColor=white) 
-![Oracle](https://img.shields.io/badge/Oracle-21c-F80000?logo=oracle&logoColor=white)
-
-## 📖 프로젝트 개요 (Overview)
-**Ats**는 한국 기업의 채용 프로세스에 특화된 **LLM 기반 채용 관리 시스템**입니다.  
-기존 채용 플랫폼의 문제점인 **'경직된 채용 프로세스'**와 **'반복적인 공고 작성 업무'**를 해결하기 위해 개발되었습니다. 
-기업은 전형 단계(Step)를 상황에 맞춰 자유롭게 커스터마이징 할 수 있으며, **RAG(검색 증강 생성) 기반의 AI 비서**를 통해 직무에 최적화된 공고를 자동 생성할 수 있습니다.
-
-## 👨‍💻 Developer Info
-* **Name:** 이재현 (Lee Jae-Hyun)
-* **Role:** Full Stack Developer (Backend 70%, Frontend 30%)
-* **Contact:** [GitHub Profile Link] | [Email Address]
-* **Contribution:**
-    * Spring Boot & Flask 하이브리드 아키텍처 설계 및 구현
-    * RAG(Retrieval-Augmented Generation) 파이프라인 구축 및 프롬프트 엔지니어링
-    * JPA 및 QueryDSL을 활용한 복잡한 동적 쿼리 및 데이터 모델링
-
-### 🎯 핵심 목표 (Goals)
-* **Process Innovation:** 정형화된 채용 단계를 넘어선 유연한 프로세스 설계 (Custom Workflow).
-* **Work Efficiency:** RAG AI 기술을 활용한 공고 작성 및 직무 기술서 자동화.
-* **Hybrid Tech:** Spring Boot의 대용량 트래픽 처리 능력과 Flask의 유연한 AI 확장성을 결합.
+> **Spring Boot & Flask 하이브리드 아키텍처 기반의 RAG 챗봇 연동 채용 관리 시스템** > **개발 기간:** 2025.12.01 ~ 2026.01.27 (8주)  
+> **Project Leader:** 이재현 (Full Stack & AI Integration)
 
 ---
 
-## 🎥 프로젝트 시연 (Demo)
+## 📖 프로젝트 개요
+기존 채용 플랫폼의 경직된 프로세스와 수작업의 비효율성을 해결하기 위해 개발된 **한국형 ATS(Applicant Tracking System)**입니다.  
+기업별 맞춤형 전형 단계 설정부터 AI 기반 공고 작성 보조까지, 채용 담당자의 업무 효율을 극대화하는 것을 목표로 합니다.
 
-### [핵심 기능] AI 공고 자동 생성 및 원클릭 적용
-> **아래 링크를 클릭하면 고화질 시연 영상을 확인할 수 있습니다.**
-
-https://github.com/user-attachments/assets/67e3294b-aa00-4dab-badf-a5c9823524ba
-
----
-
-## 🏗 시스템 아키텍처 (System Architecture)
-
-**Spring Boot(Main Backend)**와 **Flask(AI Server)**를 분리하여 각 서버의 장점을 극대화한 **하이브리드 아키텍처**입니다.
-
-```mermaid
-graph LR
-    User["User React Client"] -->|API Request| Spring["Spring Boot Server"]
-    Spring -->|JPA and QueryDSL| DB[("Oracle DB")]
-    Spring -->|REST API JSON| Flask["Flask AI Server"]
-    Flask -->|Vector Search| Vector[("TF-IDF Vectorizer")]
-    Flask -->|Prompt Injection| LLM["Ollama Gemma Model"]
-    LLM -->|Generated Text| Flask
-    Flask -->|Response| Spring
-    Spring -->|Response| User
-```
-
----
-
-## 💡 주요 기능 및 기술적 특징 (Key Features)
-
-### 1. 🤖 RAG 기반 AI 채용 비서 (AI Assistant)
-* **문제 해결:** 범용 LLM의 환각(Hallucination) 현상을 방지하고, 직무와 관련된 정확한 정보를 제공하기 위해 **RAG(Retrieval-Augmented Generation)** 방식을 도입했습니다.
-* **구현 원리:**
-    1.  사전에 구축된 IT 직무 데이터셋(CSV)을 `TF-IDF`로 벡터화하여 저장.
-    2.  사용자 질문 발생 시 `Cosine Similarity`로 가장 유사한 직무 데이터를 검색(Retrieval).
-    3.  검색된 문맥(Context)을 프롬프트에 주입하여 Gemma 모델이 답변 생성.
-* **UX 최적화:** 챗봇이 생성한 내용을 사용자가 복사/붙여넣기 할 필요 없이, **[적용하기]** 버튼 클릭 시 React의 Form 상태값에 자동 매핑되는 편의 기능 제공.
-
-### 2. 📝 동적 채용 프로세스 설계 (Custom Workflow)
-* **기능:** 공고별로 전형 단계(서류 → 1차 면접 → 코딩 테스트 → 최종 면접 등)를 기업의 상황에 맞춰 자유롭게 추가, 삭제, 순서 변경이 가능합니다.
-* **기술:** `Jobs` Entity와 `JobSteps` Entity 간의 **1:N 연관관계** 및 JPA의 `orphanRemoval` 옵션을 활용하여 데이터 생명주기를 완벽하게 동기화했습니다.
-
-### 3. 🔍 QueryDSL 기반 동적 검색 (Dynamic Search)
-* **기능:** 제목, 직무 카테고리, 고용 형태, 키워드 등 다양한 조건의 복합 필터링 검색을 지원합니다.
-* **기술:** QueryDSL의 `BooleanBuilder`와 `BooleanExpression`을 사용하여, 조건 유무에 따라 쿼리가 동적으로 변하는 **Null-Safe**하고 성능 최적화된 검색 로직을 구현했습니다.
-
-### 4. 🔐 보안 및 이종 서버 통신 (Security & Networking)
-* **CORS 해결:** 개발 환경(React:3000, Spring:8080) 간의 통신 문제를 해결하기 위해 `http-proxy-middleware`를 도입하고 세션 쿠키 공유 설정을 적용했습니다.
-* **서버 간 통신:** Java Spring에서 Python Flask로 데이터 요청 시 `RestTemplate`을 사용하여 JSON 기반의 REST 통신 파이프라인을 구축했습니다.
+### 💡 핵심 특화점
+1.  **Hybrid Architecture**: 안정적인 Spring Boot(백엔드)와 유연한 Flask(AI 서빙)의 이종 서버 결합
+2.  **AI RAG Chatbot**: 사내 데이터를 기반으로 직무 기술서(JD) 초안을 자동 생성 및 추천 (Gemma/Llama 모델 활용)
+3.  **Dynamic Workflow**: 드래그 앤 드롭(DnD)으로 전형 단계와 자기소개서 문항을 자유롭게 커스터마이징
 
 ---
 
 ## 🛠 기술 스택 (Tech Stack)
 
-| 구분 | 기술 스택 | 비고 |
-| :--- | :--- | :--- |
-| **Backend** | **Spring Boot 3.5.9**, Java 21 | Core API Server |
-| **Database** | **Oracle Database 21ai**, JPA, **QueryDSL 5.0** | Data Persistence |
-| **Frontend** | **React 19**, Axios, Bootstrap 5 | SPA Architecture |
-| **AI Server** | **Python Flask**, Scikit-learn | RAG & Vector Search |
-| **LLM** | **Ollama (gemma3:4b)** | On-premise LLM |
-| **Security** | Spring Security | Auth & Password Encoding |
-| **Tools** | Gradle, Git, Postman | Build & Collaboration |
-
-## 🧨 트러블 슈팅 (Troubleshooting)
-
-### 이슈 1: LLM 응답 속도 지연 및 타임아웃
-* **문제:** Flask AI 서버의 연산 처리로 인해 Spring Boot에서 `ReadTimeout` 예외 발생.
-* **해결:**
-    * `RestTemplate`의 ReadTimeout 설정을 5초에서 30초로 늘려 AI 추론 대기 시간 확보.
-    * 사용자 경험(UX) 개선을 위해 프론트엔드에서 '답변 생성 중' 로딩 스피너(Loading Spinner) 구현.
-
-### 이슈 2: 동적 쿼리 검색 조건의 복잡성
-* **문제:** 검색 필터가 늘어날수록 `if-else` 구문이 기하급수적으로 증가하여 유지보수 어려움.
-* **해결:** QueryDSL의 `BooleanExpression`을 활용하여 조건을 메서드 단위로 분리하고, `null` 반환 시 자동으로 `WHERE` 절에서 무시되도록 하여 **가독성**과 **확장성**을 동시에 확보.
+| Category | Technology |
+| --- | --- |
+| **Frontend** | React 19, Bootstrap 5, Axios, @hello-pangea/dnd |
+| **Backend (Main)** | Java 21, Spring Boot 3.5, Spring Security, JPA/Hibernate, QueryDSL |
+| **Backend (AI)** | Python 3.11, Flask, Scikit-learn (TF-IDF), Ollama (LLM) |
+| **Database** | Oracle 19c (RDBMS) |
+| **Infrastructure** | Http-Proxy-Middleware (CORS 해결), Gradle, RESTful API |
 
 ---
 
-## 💾 데이터베이스 모델링 (ERD Summary)
+## 🏗 시스템 아키텍처 (System Architecture)
 
-* **USERS:** 사용자 계정 정보 (관리자, 채용담당자, 현업 매니저, 면접관 - Role 기반 권한 관리)
-* **COMPANIES:** 채용을 진행하는 기업 정보 (USERS와 연동)
-* **JOBS:** 채용 공고 메인 엔티티
-* **JOB_STEPS:** 공고별 커스텀 전형 단계 (순서 및 메타데이터 포함)
-* **JOB_QUESTIONS:** 공고별 지원자 사전 질문 리스트
-
----
-
-## 🚀 시작 가이드 (Getting Started)
-
-이 프로젝트는 **Backend, Frontend, AI Server**가 각각 분리된 환경에서 실행됩니다. 아래 순서대로 실행해 주세요.
-
-### Prerequisites
-* **Java 21** & **JDK**
-* **Node.js** (v18+) & **npm**
-* **Python 3.10+**
-* **Oracle Database 23ai free** (localhost:1521)
-* **Ollama** (Model: `gemma3:4b` pull 완료 필수)
-
-```bash
-Backend (Spring Boot)
-# Repository Clone
-git clone [https://github.com/LeeJaeHyun-git/Ats.git](https://github.com/LeeJaeHyun-git/Ats.git)
-cd Ats
-
-# application.yml DB 정보 수정 후 빌드
-./gradlew bootRun
-
-Frontend (React)
-cd frontend
-npm install
-
-# Proxy 설정 확인 (src/setupProxy.js)
-npm start
-# 브라우저 접속: http://localhost:3000
-
-AI Server (Flask)
-cd ai-server
-pip install -r requirements.txt
-
-# Ollama 모델 준비
-ollama pull gemma3:4b
-
-# 서버 실행
-python app.py
-# 접속: http://localhost:5000
-
-프로젝트 구조 (Directory Structure)
-Ats/
-├── src/main/java/min/boot/ats   # [Backend] Spring Boot Source
-│   ├── config/                  # Security, QueryDSL, Cors Config
-│   ├── control/                 # API Controllers
-│   ├── domain/                  # JPA Entities
-│   ├── repo/
-│   ├── dto/                     # Service dto
-│   └── service/                 # Business Logic
-└── front/                    # [Frontend] React Source 
-    └── src/
-        ├── api/                 # Axios Instance
-        ├── components/          # Reusable Components (Chatbot, etc.)
-        ├── context/             # AuthContext (Global State)
-        └── pages/               # Page Components
+```mermaid
+graph TD
+    User([User / Browser]) -->|React SPA| Proxy[Http Proxy Middleware]
+    Proxy -->|/api/*| Spring[Spring Boot Server :8080]
+    Proxy -->|/api/chatbot/*| Spring
+    Spring -->|RestTemplate| Flask[Flask AI Server :5000]
+    Spring -->|JPA/QueryDSL| DB[(Oracle DB)]
+    Flask -->|RAG / LLM| AI_Model[[Ollama / Local LLM]]
+    Flask -->|Load| CSV[(ChatbotData.csv)]
