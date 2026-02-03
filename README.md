@@ -92,6 +92,7 @@ JobReorderRequestDto를 통해 변경된 ID 리스트를 서버로 전송하고,
 ---
 
 AtsProject-Ats
+
 ├── ☕ backend (Spring Boot)
 │   ├── src/main/java/min/boot/ats
 │   │   ├── component   # JobScheduler
@@ -113,6 +114,7 @@ AtsProject-Ats
     └── package.json
 
 AtsProject-Chatbot
+
 ├── 🐍 ai-server (Flask)
 ├── myApp          
 │    └──app.py      # Flask 서버 진입점 & RAG 로직
