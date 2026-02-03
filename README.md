@@ -107,7 +107,7 @@ AtsProject-Ats
 │   │   └── service     # 비즈니스 로직
 │   └── build.gradle
 │
-└── ⚛️ frontend (React)
+└── ⚛️ front (React)
     ├── src
     │   ├── api         # Axios 인스턴스 설정
     │   ├── components  # Chatbot
