@@ -66,6 +66,7 @@ graph TD
 ---
 
 🔥 트러블 슈팅 (Troubleshooting)
+
 이슈 1: 이종 서버(Spring-Flask) 간 CORS 및 통신 문제
 문제: React(3000), Spring(8080), Flask(5000) 포트 불일치로 인한 CORS 에러 발생
 
