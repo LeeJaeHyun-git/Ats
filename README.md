@@ -123,7 +123,7 @@ AtsProject-Chatbot
 ├── 🐍 ai-server (Flask)
 │   └── myApp
 │       └── app.py      # Flask 서버 진입점 & RAG 로직
-└── data            # 학습용 데이터셋 (ChatbotData.csv)
+└── data            # 학습용 데이터셋 (ChatbotData.csv, 답변 실패 로그 파일 포함)
 ```
 
 ---
