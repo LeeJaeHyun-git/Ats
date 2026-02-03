@@ -43,6 +43,12 @@ graph TD
 
 ---
 
+## 💾 데이터베이스 설계 (ERD)
+<img width="647" height="613" alt="Image" src="https://github.com/user-attachments/assets/4f058bc6-b23b-4757-b372-48057b7c7922" />
+<img width="469" height="706" alt="Image" src="https://github.com/user-attachments/assets/387092f3-5319-4bf9-b2de-fe6d40dcb5f7" />
+
+---
+
 ✨ 주요 기능 (Key Features)
 1. 🤖 AI 채용 비서 (RAG Chatbot)
 기능: 사용자의 자연어 요청("자바 백엔드 신입 공고 써줘")을 분석하여 직무 기술서 초안 생성
