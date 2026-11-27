@@ -95,6 +95,8 @@ Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버
 
 React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기능을 호출하도록 통신 경로를 구성
 
+🔥 트러블 슈팅 (Troubleshooting)
+
 이슈 2: 동적 입력 폼 데이터의 순서 정합성 유지
 
 문제: 사용자가 채용 공고 작성 과정에서 전형 단계(JobStep)와 지원 문항(JobQuestion)을 동적으로 추가하거나 삭제할 때, 항목의 표시 순서(Order)가 불연속적으로 관리될 수 있는 문제
