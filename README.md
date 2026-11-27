@@ -81,11 +81,13 @@ UI/UX: 직관적인 UI 제공
 
 🔥 트러블 슈팅 (Troubleshooting)
 
-이슈 1: React–Spring 간 CORS 및 Spring–Flask 서버 연동 문제
+### React–Spring 간 CORS 및 Spring–Flask 서버 연동 문제
 
-문제: React 개발 서버(3000)와 Spring Boot 서버(8080)가 서로 다른 출처에서 실행되어 브라우저의 교차 출처 요청 처리가 필요하고, 별도로 실행되는 Flask AI 서버(5000)와의 통신 구조를 구성해야 하는 문제
+**초기 문제점**
 
-해결:
+React 개발 서버(3000)와 Spring Boot 서버(8080)가 서로 다른 출처에서 실행되어 브라우저의 교차 출처 요청 처리가 필요하고, 별도로 실행되는 Flask AI 서버(5000)와의 통신 구조를 구성해야 하는 문제
+
+**해결 및 적용**
 
 React의 Axios 인스턴스에 Spring Boot 서버 주소(8080)를 설정하여 REST API를 직접 호출
 
@@ -95,13 +97,14 @@ Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버
 
 React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기능을 호출하도록 통신 경로를 구성
 
-🔥 트러블 슈팅 (Troubleshooting)
 
-이슈 2: 동적 입력 폼 데이터의 순서 정합성 유지
+### 동적 입력 폼 데이터의 순서 정합성 유지
 
-문제: 사용자가 채용 공고 작성 과정에서 전형 단계(JobStep)와 지원 문항(JobQuestion)을 동적으로 추가하거나 삭제할 때, 항목의 표시 순서(Order)가 불연속적으로 관리될 수 있는 문제
+**초기 문제점**
 
-해결:
+사용자가 채용 공고 작성 과정에서 전형 단계(JobStep)와 지원 문항(JobQuestion)을 동적으로 추가하거나 삭제할 때, 항목의 표시 순서(Order)가 불연속적으로 관리될 수 있는 문제
+
+**해결 및 적용**
 
 프론트엔드 순서 관리: React에서 전형 단계와 지원 문항을 추가할 때 배열 길이를 기준으로 순서값을 부여하고, 항목 삭제 시 배열 인덱스를 기준으로 남은 항목의 order 값을 재계산하여 순서 정합성을 유지
 
@@ -111,7 +114,6 @@ React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기
 
 JPA 변경 감지 활용: @Transactional 환경에서 각 엔티티의 updateOrder() 메서드로 순서값을 변경하고, JPA의 변경 감지(Dirty Checking)를 통해 트랜잭션 종료 시 변경 사항을 데이터베이스에 반영
 
-🔥 트러블 슈팅 (Troubleshooting)
 
 ### JPA Fetch Join을 활용한 연관 데이터 조회 최적화
 
@@ -129,7 +131,6 @@ JPA의 지연 로딩(LAZY)으로 인해 연관 엔티티 조회 과정에서 추
 
 연관 데이터를 조회할 때 불필요한 추가 쿼리 발생 가능성을 줄이고, 데이터 접근 효율을 개선하도록 조회 로직을 구성.
 
-🔥 트러블 슈팅 (Troubleshooting)
 
 ### QueryDSL 동적 검색 조건 처리
 
@@ -149,7 +150,6 @@ QueryDSL의 `BooleanExpression`을 반환하는 별도 메서드(`titleContains`
 
 검색 조건별 로직을 분리하여 코드의 가독성과 유지보수성을 높이고, 다양한 필터 조합에 대응할 수 있는 유연하고 타입 안전한 검색 쿼리 구현.
 
-🔥 트러블 슈팅 (Troubleshooting)
 
 ### RAG 도메인 지식 보강을 통한 답변 품질 개선
 
