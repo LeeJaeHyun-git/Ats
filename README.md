@@ -81,7 +81,7 @@ UI/UX: 직관적인 UI 제공.
 
 🔥 트러블 슈팅 (Troubleshooting)
 
-### React–Spring 간 CORS 및 Spring–Flask 서버 연동 문제
+### 1. React–Spring 간 CORS 및 Spring–Flask 서버 연동 문제
 
 **초기 문제점**
 
@@ -98,7 +98,7 @@ Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버
 React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기능을 호출하도록 통신 경로를 구성.
 
 
-### 동적 입력 폼 데이터의 순서 정합성 유지
+### 2. 동적 입력 폼 데이터의 순서 정합성 유지
 
 **초기 문제점**
 
@@ -115,7 +115,7 @@ React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기
 JPA 변경 감지 활용: @Transactional 환경에서 각 엔티티의 updateOrder() 메서드로 순서값을 변경하고, JPA의 변경 감지(Dirty Checking)를 통해 트랜잭션 종료 시 변경 사항을 데이터베이스에 반영.
 
 
-### JPA Fetch Join을 활용한 연관 데이터 조회 최적화
+### 3. JPA Fetch Join을 활용한 연관 데이터 조회 최적화
 
 **초기 문제점**
 
@@ -132,7 +132,7 @@ JPA의 지연 로딩(LAZY)으로 인해 연관 엔티티 조회 과정에서 추
 연관 데이터를 조회할 때 불필요한 추가 쿼리 발생 가능성을 줄이고, 데이터 접근 효율을 개선하도록 조회 로직을 구성.
 
 
-### QueryDSL 동적 검색 조건 처리
+### 4. QueryDSL 동적 검색 조건 처리
 
 **초기 문제점**
 
@@ -151,7 +151,7 @@ QueryDSL의 `BooleanExpression`을 반환하는 별도 메서드(`titleContains`
 검색 조건별 로직을 분리하여 코드의 가독성과 유지보수성을 높이고, 다양한 필터 조합에 대응할 수 있는 유연하고 타입 안전한 검색 쿼리 구현.
 
 
-### RAG 도메인 지식 보강을 통한 답변 품질 개선
+### 5. RAG 도메인 지식 보강을 통한 답변 품질 개선
 
 **초기 문제점**
 
