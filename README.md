@@ -87,9 +87,9 @@ UI/UX: 직관적인 UI 제공
 
 해결:
 
-React의 Axios 인스턴스에 Spring Boot 서버 주소(http://localhost:8080)를 설정하여 REST API를 직접 호출
+React의 Axios 인스턴스에 Spring Boot 서버 주소(8080)를 설정하여 REST API를 직접 호출
 
-Spring Security의 CorsConfigurationSource에서 React 개발 서버의 출처(http://localhost:3000)와 인증 정보가 포함된 요청을 허용하도록 설정
+Spring Security의 CorsConfigurationSource에서 React 개발 서버의 출처(3000)와 인증 정보가 포함된 요청을 허용하도록 설정
 
 Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버의 챗봇 API로 요청을 중계
 
