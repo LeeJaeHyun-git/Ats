@@ -139,7 +139,7 @@ AtsProject-Ats
     └── package.json
 ```
 
-### 2. AtsProject-Chatbot (AI Microservice)
+### 2. AtsProject-Chatbot (AI)
 ```bash
 AtsProject-Chatbot
 ├── 🐍 ai-server (Flask)
