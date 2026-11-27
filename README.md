@@ -24,21 +24,24 @@
 | **Backend (Main)** | Java 21, Spring Boot 3.5, Spring Security, JPA/Hibernate, QueryDSL |
 | **Backend (AI)** | Python 3.10, Flask, Scikit-learn (TF-IDF), Ollama - gemma3:4b(LLM) |
 | **Database** | Oracle Database 23ai free (RDBMS) |
-| **Infrastructure** | Http-Proxy-Middleware (CORS 해결), Gradle, RESTful API |
+| **Infrastructure** | Spring Security CORS, Gradle, RESTful API |
 
 ---
 
 ## 🏗 시스템 아키텍처 (System Architecture)
 
 ```mermaid
-graph TD
-    User([User / Browser]) -->|React SPA| Proxy[Http Proxy Middleware]
-    Proxy -->|/api/*| Spring[Spring Boot Server :8080]
-    Proxy -->|/api/chatbot/*| Spring
-    Spring -->|RestTemplate| Flask[Flask AI Server :5000]
-    Spring -->|JPA/QueryDSL| DB[(Oracle DB)]
-    Flask -->|RAG / LLM| AI_Model[[Ollama / Local LLM]]
-    Flask -->|Load| CSV[(ChatbotData.csv)]
+flowchart TD
+    React["React SPA / Browser :3000"]
+    Spring["Spring Boot :8080"]
+    Flask["Flask AI Server :5000"]
+    DB[("Oracle DB")]
+    Ollama["Ollama / Gemma"]
+
+    React -->|"Axios 직접 요청 (CORS)"| Spring
+    Spring -->|"RestTemplate"| Flask
+    Spring -->|"JPA / QueryDSL"| DB
+    Flask -->|"LLM 요청"| Ollama
 ```
 
 ---
@@ -77,17 +80,16 @@ UI/UX: 직관적인 UI 제공
 
 🔥 트러블 슈팅 (Troubleshooting)
 
-이슈 1: 이종 서버(Spring-Flask) 간 CORS 및 통신 문제
+이슈 1: React–Spring 간 CORS 및 Spring–Flask 서버 연동 문제
 
-문제: React(3000), Spring(8080), Flask(5000) 포트 불일치로 인한 CORS 에러 발생
+문제: React 개발 서버(3000)와 Spring Boot 서버(8080)가 서로 다른 출처에서 실행되어 브라우저의 교차 출처 요청 처리가 필요하고, 별도로 실행되는 Flask AI 서버(5000)와의 통신 구조를 구성해야 하는 문제
 
 해결:
 
-개발 환경에서 http-proxy-middleware를 사용하여 모든 API 요청을 Proxy 처리
-
-Spring Boot의 ChatController가 Flask로의 요청을 중계(Relay)하는 API Gateway 패턴 적용
-
-클라이언트는 Spring하고만 통신하도록 단일화하여 보안 및 세션 관리 문제 해결
+React의 Axios 인스턴스에 Spring Boot 서버 주소(http://localhost:8080)를 설정하여 REST API를 직접 호출
+Spring Security의 CorsConfigurationSource에서 React 개발 서버의 출처(http://localhost:3000)와 인증 정보가 포함된 요청을 허용하도록 설정
+Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버의 챗봇 API로 요청을 중계
+React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기능을 호출하도록 통신 경로를 구성
 
 이슈 2: 동적 입력 폼 데이터의 순서 정합성 유지
 
