@@ -73,7 +73,7 @@ UI/UX: 직관적인 UI 제공
 
 3. 🔐 보안 및 인증 (Security)
 
-권한 분리: 기업 담당자(Recruiter)와 구직자(Guest)의 접근 권한을 철저히 분리
+권한 분리: 기업 담당자(Recruiter)와 구직자(Guest)의 접근 권한 제어
 
 하이브리드 통신 보안: React가 AI 서버에 직접 접근하지 않고, Spring Boot를 Gateway로 경유하여 보안성 강화
 
