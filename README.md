@@ -89,13 +89,13 @@ React 개발 서버(3000)와 Spring Boot 서버(8080)가 서로 다른 출처에
 
 **해결 및 적용**
 
-React의 Axios 인스턴스에 Spring Boot 서버 주소(8080)를 설정하여 REST API를 직접 호출.
+- React의 Axios 인스턴스에 Spring Boot 서버 주소(8080)를 설정하여 REST API를 직접 호출.
 
-Spring Security의 CorsConfigurationSource에서 React 개발 서버의 출처(3000)와 인증 정보가 포함된 요청을 허용하도록 설정.
+- Spring Security의 CorsConfigurationSource에서 React 개발 서버의 출처(3000)와 인증 정보가 포함된 요청을 허용하도록 설정.
 
-Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버의 챗봇 API로 요청을 중계.
+- Spring Boot의 ChatController에서 RestTemplate을 이용하여 Flask AI 서버의 챗봇 API로 요청을 중계.
 
-React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기능을 호출하도록 통신 경로를 구성.
+- React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기능을 호출하도록 통신 경로를 구성.
 
 
 ### 2. 동적 입력 폼 데이터의 순서 정합성 유지
@@ -142,11 +142,11 @@ JPA의 지연 로딩(LAZY)으로 인해 연관 엔티티 조회 과정에서 추
 
 **해결 및 적용**
 
-QueryDSL의 `BooleanExpression`을 반환하는 별도 메서드(`titleContains`, `categoryEq`, `employmentTypeEq`)로 검색 조건을 분리.
+- QueryDSL의 `BooleanExpression`을 반환하는 별도 메서드(`titleContains`, `categoryEq`, `employmentTypeEq`)로 검색 조건을 분리.
 
-검색 조건이 없는 경우 `null`을 반환하여 `where()`절에서 해당 조건이 자동으로 제외되도록 동적 쿼리 구성.
+- 검색 조건이 없는 경우 `null`을 반환하여 `where()`절에서 해당 조건이 자동으로 제외되도록 동적 쿼리 구성.
 
-공고 상태가 `ALL`인 경우에도 상태 조건을 제외하도록 처리.
+- 공고 상태가 `ALL`인 경우에도 상태 조건을 제외하도록 처리.
 
 **결과**
 
@@ -161,9 +161,9 @@ LLM이 사용자 질문과 관련성이 낮은 일반적인 답변을 생성하�
 
 **해결 및 적용**
 
-`ChatbotData.csv`에 '4년 차 이상 백엔드 개발자 경력직 요구 역량' 등 경력별·직무별 채용 요건에 관한 도메인 지식을 추가하여 데이터셋 보강.
+- `ChatbotData.csv`에 '4년 차 이상 백엔드 개발자 경력직 요구 역량' 등 경력별·직무별 채용 요건에 관한 도메인 지식을 추가하여 데이터셋 보강.
 
-TF-IDF와 코사인 유사도를 활용해 사용자 질문과 관련성이 높은 데이터를 검색하고, 검색 결과를 Ollama Gemma3 모델의 프롬프트에 제공하도록 RAG 파이프라인 구성.
+- TF-IDF와 코사인 유사도를 활용해 사용자 질문과 관련성이 높은 데이터를 검색하고, 검색 결과를 Ollama Gemma3 모델의 프롬프트에 제공하도록 RAG 파이프라인 구성.
 
 **결과**
 
