@@ -110,8 +110,6 @@ React가 Flask 서버에 직접 접근하지 않고 Spring Boot를 통해 AI 기
 
 데이터 저장: 공고 등록 및 수정 요청 시 JobRequestDto를 통해 전형 단계와 지원 문항의 순서 정보를 Spring Boot 서버로 전달하고, JPA 엔티티에 반영하여 데이터베이스에 저장.
 
-백엔드 재정렬 API: JobReorderRequestDto를 통해 변경된 ID 목록을 수신하는 별도의 순서 변경 API(PUT /api/jobs/{jobId}/reorder)를 구현.
-
 JPA 변경 감지 활용: @Transactional 환경에서 각 엔티티의 updateOrder() 메서드로 순서값을 변경하고, JPA의 변경 감지(Dirty Checking)를 통해 트랜잭션 종료 시 변경 사항을 데이터베이스에 반영.
 
 
